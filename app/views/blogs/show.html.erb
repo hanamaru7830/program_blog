@@ -1,2 +1,17 @@
-<h1>Blogs#show</h1>
-<p>Find me in app/views/blogs/show.html.erb</p>
+<div class="container">
+  <div class="row m-5">
+    <div class="col-12 text-center">
+      <h2 class= "mb-5">投稿詳細</h2>
+      <h4 class="mb-3">タイトル</h4>
+      <h3 class="mb-5"><%= @blog.title %><h3>
+      <h4 class="mb-3">カテゴリー</h4>
+      <h3 class="mb-5"><%= @blog.category %><h3>
+      <h4 class="mb-3">本文</h4>
+      <h3 ><%= @blog.body %><h3>
+      <%= link_to "編集", edit_blog_path(@blog.id) %>
+    </div>
+
+  </div>
+</div>
+
+
