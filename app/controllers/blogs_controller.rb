@@ -2,7 +2,7 @@ class BlogsController < ApplicationController
   def index
     @blog = Blog.new
     #blogモデルのテーブルから全てデータを取り出し＠blogsに代入（配列でデータが入っている）
-    @blogs = Blog.all  
+    @blogs = Blog.page(params[:page]).reverse_order
   end
 
   def create
