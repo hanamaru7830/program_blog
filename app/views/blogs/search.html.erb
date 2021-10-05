@@ -15,7 +15,7 @@
         <tr>
           <td>
             <%= link_to blog_path(blog), local: true do %>
-            <%=safe_join(blog.title.split("\n"),tag(:br))%>
+              <%=safe_join(blog.title.split("\n"),tag(:br))%>
             <% end %>
           </td>
           <td><%=safe_join(blog.category.split("\n"),tag(:br))%></td>
