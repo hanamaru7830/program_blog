@@ -32,11 +32,7 @@ class BlogsController < ApplicationController
   end 
   
   def search
-    if params[:title].present?
-      @blogs = Blog.where('title LIKE ?', "%#{params[:title]}%")
-    else
-      @blogs = Blog.none
-    end
+    @blogs = Blog.search(params[:search])
   end
   
   private # ストロングパラメータ
