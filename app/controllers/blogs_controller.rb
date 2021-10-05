@@ -30,7 +30,18 @@ class BlogsController < ApplicationController
     blog.destroy
     redirect_to blogs_path
   end 
+<<<<<<< Updated upstream
 
+=======
+  
+  def search
+    if params[:title].present?
+      @blogs = Blog.where(['title ? OR category LIKE ? OR body LIKE ?', "%#{search}%", "%#{search}%", "%#{search}%"])
+      @blogs = Blog.none
+    end
+  end
+  
+>>>>>>> Stashed changes
   private # ストロングパラメータ
 
   def blog_params
