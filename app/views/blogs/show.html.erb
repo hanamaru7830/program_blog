@@ -1,16 +1,31 @@
 <div class="container">
-  <div class="row m-5">
-    <div class="col-12 text-center">
-      <h2 class= "mb-5">投稿詳細</h2>
-      <h4 class="mb-3">タイトル</h4>
-      <h3 class="mb-5"><%= @blog.title %><h3>
-      <h4 class="mb-3">カテゴリー</h4>
-      <h3 class="mb-5"><%= @blog.category %><h3>
-      <h4 class="mb-3">本文</h4>
-      <h3 ><%= @blog.body %><h3>
-      <%= link_to "編集", edit_blog_path(@blog.id) %>
+  <div class="row">
+    <div class="col-12">
+      <table class="table">
+      <h2 class= "text-center m-5">Blog Show</h2>
+       <thead>
+          <tr>
+            <th>タイトル</th>
+            <th>カテゴリ</th>
+            <th>本文</th>
+            <th></th>
+            <th></th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><%=safe_join(@blog.title.split("\n"),tag(:br))%></td>
+            <td><%=safe_join(@blog.category.split("\n"),tag(:br))%></td>
+            <td><%=safe_join(@blog.body.split("\n"),tag(:br))%></td>
+            <td><%= link_to "編集", edit_blog_path(@blog.id) %></td>
+            <td><%= link_to "削除", blog_path(@blog.id), method: :delete, data: {confirm: "削除しますか？"} %></td>
+            <td><%= link_to "戻る", blogs_path %></td>
+          </tr>
+        </tbody>
+      </table>
+      </div>
     </div>
-
   </div>
 </div>
 
