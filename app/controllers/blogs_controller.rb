@@ -30,7 +30,15 @@ class BlogsController < ApplicationController
     blog.destroy
     redirect_to blogs_path
   end 
-
+  
+  def search
+    if params[:title].present?
+      @blogs = Blog.where('title LIKE ?', "%#{params[:title]}%")
+    else
+      @blogs = Blog.none
+    end
+  end
+  
   private # ストロングパラメータ
 
   def blog_params
