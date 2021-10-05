@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container-fluid">
   <div class="row">
     <div class="col-12">
       <table class="table">
@@ -7,7 +7,7 @@
         <tr>
           <th>タイトル</th>
           <th>カテゴリー</th>
-          <th>本文 </th>
+          <th>本文</th>
         </tr>
       </thead>
       <tbody>
@@ -15,7 +15,7 @@
         <tr>
           <td>
             <%= link_to blog_path(blog), local: true do %>
-            <%=safe_join(blog.title.split("\n"),tag(:br))%>
+              <%=safe_join(blog.title.split("\n"),tag(:br))%>
             <% end %>
           </td>
           <td><%=safe_join(blog.category.split("\n"),tag(:br))%></td>
