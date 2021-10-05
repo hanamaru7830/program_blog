@@ -1,0 +1,23 @@
+<h2 class="text-center mt-5 mb-5">Blog search</h2>
+<table class="table">
+  <thead>
+    <tr>
+      <th>タイトル</th>
+      <th>カテゴリー</th>
+      <th>本文</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @blogs.each do |blog| %>
+      <tr>
+        <td>
+          <%= link_to blog_path(blog), local: true do %>
+          <%= blog.title %>
+          <% end %>
+        </td>
+        <td><%= blog.category %></td>
+        <td><%= blog.body %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
