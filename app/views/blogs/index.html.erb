@@ -2,7 +2,7 @@
   <div class="row">
     <div class="col-12">
       <table class="table">
-        <h2 class="text-center mt-5 mb-5">Program Blog</h2>
+        <h1 class="text-center mt-5 mb-5">Program Blog</h1>
         <div class="row justify-content-center mb-3">
           <%= form_with url: search_blogs_path, method: :get, local: true do |f| %>
           <%= f.text_field :search %>
@@ -35,11 +35,11 @@
       <h2 class="text-center">新規投稿</h2>
       <div class="row justify-content-center mb-5">
         <%= form_with model: @blog do |f| %>
-          <h4>タイトル</h4>
+          <h5>タイトル</h5>
           <%= f.text_field :title, size:"50x1" %>
-          <h4 class="mt-3">カテゴリー</h4>
+          <h5 class="mt-3">カテゴリー</h5>
           <%= f.text_field :category, size:"50x1" %>
-          <h4 class="mt-3">本文</h4>
+          <h5 class="mt-3">本文</h5>
           <%= f.text_area :body, size:"90x5" %>
           <div><%= f.submit "投稿", class: "btn btn-primary btn-lg"%></div>
         <% end %>
