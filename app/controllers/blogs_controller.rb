@@ -6,9 +6,12 @@ class BlogsController < ApplicationController
   end
 
   def create
-    blog = Blog.new(blog_params)  # １. データを新規登録するためのインスタンス作成
-    blog.save                     # ２. データをデータベースに保存するためのsaveメソッド実行
-    redirect_to blogs_path
+    @blog = Blog.new(blog_params)  # １. データを新規登録するためのインスタンス作成
+    if @blog.save                     # ２. データをデータベースに保存するためのsaveメソッド実行
+      redirect_to blogs_path
+    else
+      render :index
+    end
   end
 
   def show
@@ -18,24 +21,24 @@ class BlogsController < ApplicationController
   def edit
     @blog = Blog.find(params[:id])
   end
-  
+
   def update
     blog = Blog.find(params[:id])
     blog.update(blog_params)
     redirect_to blog_path(blog.id)
-  end 
-  
+  end
+
   def destroy
     blog = Blog.find(params[:id])
     blog.destroy
     redirect_to blogs_path
-  end 
+  end
 
-  
+
   def search
     @blogs = Blog.search(params[:search])
   end
-  
+
   private # ストロングパラメータ
 
   def blog_params
